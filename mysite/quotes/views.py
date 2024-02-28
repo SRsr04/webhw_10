@@ -5,6 +5,9 @@ from .models import Author, Quote
 from .forms import AuthorForm, QuoteForm
 from django.contrib.auth.decorators import login_required
 
+def home(request):
+    return render(request, 'home.html')
+
 def author_detail(request, author_id):
     author = Author.objects.get(id=author_id)
     quotes = Quote.objects.filter(author=author)
